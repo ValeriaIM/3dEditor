@@ -36,6 +36,7 @@ __email__ = 'vkvaleria2000@gmail.com'
 LOGGER_NAME = '3d-editor'
 LOGGER = logging.getLogger(LOGGER_NAME)
 
+
 def parse_args():
     """Разбор аргуметов запуска"""
     parser = argparse.ArgumentParser(
@@ -56,8 +57,10 @@ def parse_args():
 
     return parser.parse_args()
 
+
 class NullStream:
     """Ничегонеделающий context manager"""
+
     def __getattr__(self, name):
         self.name = lambda *args: None
         return self.name
@@ -67,6 +70,7 @@ class NullStream:
 
     def __exit__(self, *exc):
         return False
+
 
 def main():
     """Точка входа в приложение"""
