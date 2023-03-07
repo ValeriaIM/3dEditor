@@ -7,7 +7,7 @@ ERROR_QT_VERSION = 4
 ERROR_OPEN_WINDOW = 5
 
 try:
-    from editor import redactor
+    from editor import editor
     from editor import drawer
 except Exception as e:
     print('Game modules not found: "{}"'.format(e), file=sys.stderr)
@@ -89,7 +89,7 @@ def main():
         log.setFormatter(logging.Formatter(
             '%(asctime)s [%(levelname)s <%(name)s>] %(message)s'))
 
-        for module in (sys.modules[__name__], redactor, drawer):
+        for module in (sys.modules[__name__], editor, drawer):
             logger = logging.getLogger(module.LOGGER_NAME)
             logger.setLevel(logging.DEBUG if args.log else logging.ERROR)
             logger.addHandler(log)
@@ -98,9 +98,9 @@ def main():
 
         try:
             application = QtWidgets.QApplication(sys.argv)
-            redactor_window = redactor.RedactorWindow()
-            redactor_window.setMaximumSize(redactor.RESOLUTION[0],
-                                           redactor.RESOLUTION[1])
+            redactor_window = editor.RedactorWindow()
+            redactor_window.setMaximumSize(editor.RESOLUTION[0],
+                                           editor.RESOLUTION[1])
             redactor_window.show()
         except Exception as e:
             print('PyQt5 not found: "{}". Use console version (cmines)'.format(e),
@@ -108,7 +108,14 @@ def main():
             sys.exit(ERROR_OPEN_WINDOW)
 
         LOGGER.info('Window OK. Start application...')
-        application.exec_()
+        try:
+            application.exec_()
+        except BaseException as e:
+            import traceback
+            LOGGER.error('Error: %s\n%s', e,
+                         ''.join(traceback.format_tb(sys.exc_info()[-1])))
+            print(e, file=sys.stderr)
+            sys.exit(ERROR_EXCEPTION)
 
 
 if __name__ == "__main__":

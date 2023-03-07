@@ -1,4 +1,4 @@
-class Vector3():
+class Vector3:
     def __init__(self, x: float, y: float, z: float):
         self.x = x
         self.y = y
@@ -6,8 +6,8 @@ class Vector3():
 
     @staticmethod
     def distance(vector1, vector2) -> float:
-        return ((vector1.x - vector2.x)**2 + (vector1.y - vector2.y)**2 +
-                (vector1.z - vector2.z)**2)**0.5
+        return ((vector1.x - vector2.x) ** 2 + (vector1.y - vector2.y) ** 2 +
+                (vector1.z - vector2.z) ** 2) ** 0.5
 
     def __add__(self, other):
         if isinstance(other, Vector3):
@@ -23,28 +23,25 @@ class Vector3():
 
     def __mul__(self, other):
         if isinstance(other, Vector3):
-            return Vector3(self.y*other.z - self.z*other.y,
-                           self.z*other.x - self.x*other.z,
-                           self.x*other.y - self.y*other.x)
+            return Vector3(self.y * other.z - self.z * other.y,
+                           self.z * other.x - self.x * other.z,
+                           self.x * other.y - self.y * other.x)
         elif isinstance(other, float) or isinstance(other, int):
-            return Vector3(self.x*other, self.y*other, self.z*other)
+            return Vector3(self.x * other, self.y * other, self.z * other)
 
     def __eq__(self, other):
         return (isinstance(other, Vector3) and self.x == other.x and
                 self.y == other.y and self.z == other.z)
 
+    def __str__(self):
+        return f'{float(self.x)},{float(self.y)},{float(self.z)}'
+
     def to_matrix(self):
         return Matrix(3, 1, self.x, self.y, self.z)
 
     def to_tuple(self):
-        return(self.x, self.y, self.z)
+        return self.x, self.y, self.z
 
-    def __str__(self):
-        return f'{float(self.x)},{float(self.y)},{float(self.z)}'
-
-    @staticmethod
-    def from_string(str_representation):
-        return Vector3(*map(float, str_representation.split(',')))
 
 class Matrix:
     def __init__(self, string: int, column: int, *args: float):
@@ -68,7 +65,7 @@ class Matrix:
                 for j in range(other.column):
                     res = 0
                     for x in range(self.column):
-                        res += self[i][x]*other[x][j]
+                        res += self[i][x] * other[x][j]
                     ceils.append(res)
             return Matrix(len(self.table), other.column, *ceils)
         if isinstance(other, Vector3):
