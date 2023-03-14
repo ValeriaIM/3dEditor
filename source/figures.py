@@ -29,9 +29,11 @@ class Point:
     def to_vector3(self):
         return Vector3(self.x, self.y, self.z)
 
+    # Нужно во время отладки
     def __str__(self):
         return f'pt,{int(self.x)},{int(self.y)},{int(self.z)}'
 
+    # Пока не актуально
     def close_equal(self, point):
         return abs(self.x - point.x) < 1e-5 and \
                abs(self.y - point.y) < 1e-5 and \
@@ -54,5 +56,6 @@ class Line:
             for point in self.points:
                 point + other
 
+    # Нужно во время отладки
     def __str__(self):
         return f'ln!|{str(self.start)}||{str(self.end)}|'
