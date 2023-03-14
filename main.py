@@ -20,7 +20,7 @@ if sys.version_info < (3, 6):
 try:
     from PyQt5 import QtGui, QtCore, QtWidgets
 except Exception as e:
-    print('PyQt5 not found: "{}". Use console version (cmines)'.format(e),
+    print('PyQt5 not found: "{}"'.format(e),
           file=sys.stderr)
     sys.exit(ERROR_QT_VERSION)
 
@@ -103,7 +103,7 @@ def main():
                                            editor.RESOLUTION[1])
             redactor_window.show()
         except Exception as e:
-            print('PyQt5 not found: "{}". Use console version (cmines)'.format(e),
+            print('PyQt5 not found: "{}". Install it'.format(e),
                   file=sys.stderr)
             sys.exit(ERROR_OPEN_WINDOW)
 

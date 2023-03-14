@@ -30,17 +30,11 @@ def set_painter_params(painter, pen_color=QtGui.QColor(230, 102, 0),
 
 
 class Drawer:
-    DEFAULT_COLOR_LIGHT = (255, 150, 0)
-    DEFAULT_COLOR_DARK = (230, 150, 30)
-
     def __init__(self, model):
         self.model = model
         self.displayed_objects = []
         self.points_display_table = {}
 
-        self.style_settings = {}
-
-        self.current_color = self.DEFAULT_COLOR_LIGHT
         self.point_color = Color.GREEN
         self.line_color = Color.BLACK
 
@@ -53,17 +47,6 @@ class Drawer:
             Line: self.paint_line
         }
 
-        self.check_to_visible = {
-            Point: lambda point: model.calculate_distance_to_display_plate(
-                point.x,
-                point.y,
-                point.z) >= 0,
-            Line: lambda line: any(model.calculate_distance_to_display_plate(
-                line.start.x,
-                line.start.y,
-                line.start.z) >= 0)
-        }
-
     def update_scene(self, painter, resolution, split_coordinates, zoom):
         set_painter_params(painter)
         painter.fillRect(
@@ -73,11 +56,10 @@ class Drawer:
         self.draw_coordinates_system(painter)
 
         self.displayed_objects = []
-        for obj in self.model.objects:
-            self.paint_object(
-                split_coordinates, zoom, painter)
+        self.paint_objects(
+            split_coordinates, zoom, painter)
 
-    def paint_object(self, split_coordinates, zoom, painter):
+    def paint_objects(self, split_coordinates, zoom, painter):
         for obj in self.model.objects:
             if isinstance(obj, Point):
                 display_coord = self.model.display_vector(
@@ -107,7 +89,8 @@ class Drawer:
 
     def draw_coordinates_system(self, painter):
         width = 5
-        display_origin = self.model.display_vector(self.model.origin.to_vector3())
+        vect = self.model.origin.to_vector3()
+        display_origin = self.model.display_vector(vect)
         display_origin = (int(display_origin[0] + 1200),
                           int(display_origin[1] + 60))
         painter.drawEllipse(int(display_origin[0] - width / 2),
@@ -117,12 +100,10 @@ class Drawer:
         colors_axis = (QtCore.Qt.green, QtCore.Qt.blue, QtCore.Qt.red)
         i = 0
         for color in colors_axis:
-            painter.setPen(QtGui.QPen(color, self.axiss_width, QtCore.Qt.DashLine))
+            pen = QtGui.QPen(color, self.axiss_width, QtCore.Qt.DashLine)
+            painter.setPen(pen)
             self.draw_axis(painter, self.model.basis[i], display_origin)
             i = i + 1
-
-        painter.setPen(QtGui.QPen(QtGui.QColor(
-            255, 100, 0), 5, QtCore.Qt.SolidLine))
 
     def draw_axis(self, painter, basis_vector, display_origin):
         width = 5

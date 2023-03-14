@@ -38,8 +38,6 @@ class SceneWindow(QtWidgets.QLabel):
     def __init__(self, window):
         super().__init__(window)
 
-        self.object_to_modify = None
-        self.model = None
         canvas = QtGui.QPixmap(RESOLUTION[0], RESOLUTION[1])
         canvas.fill(QtGui.QColor('grey'))
         self.setPixmap(canvas)
@@ -47,16 +45,13 @@ class SceneWindow(QtWidgets.QLabel):
         self.last_x = 0
         self.last_y = 0
         self.zoom = 1
-        self.last_time_clicked = time.time()
-        self.forget_object_delay = 0.15
+
         self.object_to_interact = None
-
-        self.split_coordinates = [640, 360]
-
+        self.object_to_modify = None
+        self.model = None
         self.drawer = None
-        self.style_preset = 81
 
-        self.startTimer(20)
+        self.origin_coordinates = [640, 360]
 
     def timerEvent(self, event):
         self.update_statusbar()
@@ -64,7 +59,7 @@ class SceneWindow(QtWidgets.QLabel):
     def update_scene_display(self):
         with self.get_painter() as painter:
             self.drawer.update_scene(
-                painter, RESOLUTION, self.split_coordinates, self.zoom)
+                painter, RESOLUTION, self.origin_coordinates, self.zoom)
 
         self.update_statusbar()
 
@@ -74,9 +69,9 @@ class SceneWindow(QtWidgets.QLabel):
     def update_statusbar(self):
         pos = QtGui.QCursor.pos()
         global_coord = (self.parent().model.display_plate_basis[0] *
-                        (pos.x() / self.zoom - self.split_coordinates[0]) +
+                        (pos.x() / self.zoom - self.origin_coordinates[0]) +
                         self.parent().model.display_plate_basis[1] *
-                        (pos.y() / self.zoom - self.split_coordinates[1]))
+                        (pos.y() / self.zoom - self.origin_coordinates[1]))
         self.parent().statusBar().showMessage(
             f'Mode: {str(self.parent().mode)[5:]};' +
             f' x={round(global_coord.x, 1)} ' +
@@ -96,8 +91,8 @@ class SceneWindow(QtWidgets.QLabel):
 
     def mouseMoveEvent(self, event: QtGui.QMouseEvent):
         if self.parent().mode == Mode.VIEW:
-            self.split_coordinates[0] += event.x() / self.zoom - self.last_x
-            self.split_coordinates[1] += event.y() / self.zoom - self.last_y
+            self.origin_coordinates[0] += event.x() / self.zoom - self.last_x
+            self.origin_coordinates[1] += event.y() / self.zoom - self.last_y
 
         self.refresh_interaction_variables(event)
         self.parent().update_display()
@@ -105,15 +100,16 @@ class SceneWindow(QtWidgets.QLabel):
     def refresh_interaction_variables(self, event):
         self.last_x = event.x() / self.zoom
         self.last_y = event.y() / self.zoom
-        self.last_time_clicked = time.time()
 
     def set_point(self, event):
+        x = self.origin_coordinates[0]
+        y = self.origin_coordinates[1]
         self.parent().model.add_point((self.parent(
         ).model.display_plate_basis[0] *
-                                       ((event.x() - self.split_coordinates[0]) / self.zoom)) +
+                                       ((event.x() - x) / self.zoom)) +
                                       (self.parent(
                                       ).model.display_plate_basis[1] *
-                                       ((event.y() - self.split_coordinates[1]) / self.zoom)),
+                                       ((event.y() - y) / self.zoom)),
                                       self.drawer.point_color)
 
     def choose_line_points(self, event):
@@ -135,22 +131,17 @@ class SceneWindow(QtWidgets.QLabel):
                 if obj.WIDTH > distance:
                     self.object_to_interact = obj
                     break
-            elif isinstance(obj, Line):
-                distance = self.get_distance_to_line(event, obj)
-                if obj.WIDTH > distance:
-                    self.object_to_interact = obj
-                    break
 
     def get_distance_to_point(self, event, point):
         return get_distance(event.x(), event.y(),
                             *self.drawer.points_display_table[point])
 
-    def get_distance_to_line(self, event, line):
-        return (self.get_distance_to_point(event, line.start) +
-                self.get_distance_to_point(event, line.end) -
-                get_distance(
-                    *self.drawer.points_display_table[line.start],
-                    *self.drawer.points_display_table[line.end]))
+
+def set_checkable(action, mode):
+    condition = 'Mode.' + action.iconText().upper()
+    if action.isChecked() and condition != str(mode):
+        action.setCheckable(False)
+        action.setCheckable(True)
 
 
 class RedactorWindow(QtWidgets.QMainWindow):
@@ -234,6 +225,7 @@ class RedactorWindow(QtWidgets.QMainWindow):
 
         self.modifybar = QtWidgets.QToolBar(self)
         self.addToolBar(QtCore.Qt.LeftToolBarArea, self.modifybar)
+
         self.statusBar()
 
         self.label = SceneWindow(self)
@@ -286,13 +278,9 @@ class RedactorWindow(QtWidgets.QMainWindow):
         self.buffer = []
         self.mode = mode
         for action in self.toolbar.actions():
-            if action.isChecked() and 'Mode.' + action.iconText().upper() != str(mode):
-                action.setCheckable(False)
-                action.setCheckable(True)
+            set_checkable(action, mode)
         for action in self.mode_menu.actions():
-            if action.isChecked() and 'Mode.' + action.iconText().upper() != str(mode):
-                action.setCheckable(False)
-                action.setCheckable(True)
+            set_checkable(action, mode)
         self.update_display()
 
     def rotate(self, axis):
