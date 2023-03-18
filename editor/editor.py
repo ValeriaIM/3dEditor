@@ -1,4 +1,3 @@
-import time
 from PyQt5 import QtGui, QtWidgets, QtCore
 from source import model
 from source.algebra import *
@@ -7,12 +6,14 @@ from editor.drawer import Drawer
 import math
 from enum import Enum
 import logging
+import sys
 
 RESOLUTION = (1280, 720)
 
 LOGGER_NAME = '3d-editor.editor'
 LOGGER = logging.getLogger(LOGGER_NAME)
 
+ERROR_DRAW_OBJ = 6
 
 class Mode(Enum):
     VIEW = 0
@@ -81,12 +82,22 @@ class SceneWindow(QtWidgets.QLabel):
             f' Zoom: {round(self.zoom, 2)}')
 
     def mousePressEvent(self, event):
-        if self.parent().mode == Mode.POINT:
-            self.set_point(event)
-        elif self.parent().mode == Mode.LINE:
-            self.choose_line_points(event)
-        elif self.parent().mode == Mode.PLACE:
-            self.choose_place_points(event)
+        try:
+            if self.parent().mode == Mode.POINT:
+                self.set_point(event)
+                LOGGER.info('point has been added')
+            elif self.parent().mode == Mode.LINE:
+                self.choose_line_points(event)
+                LOGGER.info('line has been added')
+            elif self.parent().mode == Mode.PLACE:
+                self.choose_place_points(event)
+                LOGGER.info('place has been added')
+        except Exception as e:
+            import traceback
+            LOGGER.error('Error: %s\n%s', e,
+                         ''.join(traceback.format_tb(sys.exc_info()[-1])))
+            print(e, file=sys.stderr)
+            sys.exit(ERROR_DRAW_OBJ)
 
         self.object_to_interact = None
         self.refresh_interaction_variables(event)
