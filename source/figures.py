@@ -46,7 +46,6 @@ class Line:
 
     def __init__(self, start: Point, end: Point,
                  color=Color.BLACK):
-        self.style = None
         self.start = start
         self.end = end
         self.color = color
@@ -59,3 +58,20 @@ class Line:
     # Нужно во время отладки
     def __str__(self):
         return f'ln!|{str(self.start)}||{str(self.end)}|'
+
+
+class Place:
+    WIDTH = 5
+    Name = 'Place'
+
+    def __init__(self, points,
+                 color=Color.GREEN):
+        if points:
+            self.points = [point for point in points]
+        self.color = color
+
+    def __str__(self):
+        str_place = 'pl!'
+        for point in self.points:
+            str_place += f'|{str(point)}|'
+        return str_place

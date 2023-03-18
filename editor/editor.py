@@ -18,6 +18,7 @@ class Mode(Enum):
     VIEW = 0
     POINT = 1
     LINE = 2
+    PLACE = 3
 
 
 style_sheet = """
@@ -84,6 +85,8 @@ class SceneWindow(QtWidgets.QLabel):
             self.set_point(event)
         elif self.parent().mode == Mode.LINE:
             self.choose_line_points(event)
+        elif self.parent().mode == Mode.PLACE:
+            self.choose_place_points(event)
 
         self.object_to_interact = None
         self.refresh_interaction_variables(event)
@@ -122,6 +125,18 @@ class SceneWindow(QtWidgets.QLabel):
                                          self.parent().buffer[1],
                                          self.drawer.line_color)
             self.parent().buffer = []
+
+    def choose_place_points(self, event):
+        self.update_object_to_interact(event)
+        obj = self.object_to_interact
+        if obj and isinstance(obj, Point):
+            parent = self.parent()
+            if obj in parent.buffer:
+                if len(parent.buffer) >= 3:
+                    self.parent().model.add_place(self.parent().buffer,
+                                              self.drawer.plane_color)
+            else:
+                self.parent().buffer.append(self.object_to_interact)
 
     def update_object_to_interact(self, event):
         self.object_to_interact = None
@@ -255,7 +270,10 @@ class RedactorWindow(QtWidgets.QMainWindow):
         action_line = self.new_action(
             'Line', lambda _: self.set_mode(Mode.LINE),
             'pictures/line.png', '2')
-        return action_point, action_line
+        action_place = self.new_action(
+            'Place', lambda _: self.set_mode(Mode.PLACE),
+            'pictures/plate.png', '3')
+        return action_point, action_line, action_place
 
     def get_actions_mode(self):
         action_mode_view = self.new_action(
@@ -275,6 +293,9 @@ class RedactorWindow(QtWidgets.QMainWindow):
         self.update()
 
     def set_mode(self, mode: Mode):
+        if self.mode == Mode.PLACE and len(self.buffer) > 2:
+            self.model.add_place(self.buffer,
+                                 self.label.drawer.plane_color)
         self.buffer = []
         self.mode = mode
         for action in self.toolbar.actions():

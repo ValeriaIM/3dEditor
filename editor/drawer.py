@@ -12,13 +12,15 @@ class Color(Enum):
     RED = 1
     GREEN = 2
     YELLOW = 3
+    BLUE = 4
 
 
 COLORS = {
     Color.BLACK: QtCore.Qt.black,
     Color.RED: QtCore.Qt.red,
     Color.GREEN: QtCore.Qt.green,
-    Color.YELLOW: QtCore.Qt.yellow}
+    Color.YELLOW: QtCore.Qt.yellow,
+    Color.BLUE: QtCore.Qt.blue}
 
 
 def set_painter_params(painter, pen_color=QtGui.QColor(230, 102, 0),
@@ -37,6 +39,7 @@ class Drawer:
 
         self.point_color = Color.GREEN
         self.line_color = Color.BLACK
+        self.plane_color = Color.BLUE
 
         self.scene_style_preset = 81
         self.axiss_size = 50
@@ -44,7 +47,8 @@ class Drawer:
 
         self.draw_table = {
             Point: self.paint_point,
-            Line: self.paint_line
+            Line: self.paint_line,
+            Place: self.paint_place
         }
 
     def update_scene(self, painter, resolution, split_coordinates, zoom):
@@ -86,6 +90,13 @@ class Drawer:
         painter.drawLine(
             *self.points_display_table[line.start],
             *self.points_display_table[line.end])
+
+    def paint_place(self, place, painter):
+        set_painter_params(painter, pen_color=COLORS[place.color])
+        painter.pen().setWidth(place.WIDTH)
+        painter.drawConvexPolygon(
+            *[QtCore.QPointF(*self.points_display_table[point])
+              for point in place.points])
 
     def draw_coordinates_system(self, painter):
         width = 5

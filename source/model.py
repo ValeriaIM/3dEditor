@@ -1,5 +1,5 @@
 from .algebra import *
-from .figures import Point, Line
+from .figures import *
 from enum import Enum
 
 
@@ -34,6 +34,9 @@ class Model:
 
     def add_line(self, point1, point2, color):
         self.objects.append(Line(point1, point2, color))
+
+    def add_place(self, points, color):
+        self.objects.append(Place(points, color))
 
     def display_vector(self, vector: Vector3) -> tuple:
         return (self.matrix_of_display * vector).to_tuple()
