@@ -388,7 +388,7 @@ class RedactorWindow(QtWidgets.QMainWindow):
         if not ok:
             return
         screen = QtWidgets.QApplication.primaryScreen()
-        if not filename.endswith('.png'):
+        if not filename.endswith('.png') and not filename.endswith('.bmp'):
             filename += '.png'
         LOGGER.info('screenshot is saving')
         try:
