@@ -14,6 +14,9 @@ LOGGER_NAME = '3d-editor.editor'
 LOGGER = logging.getLogger(LOGGER_NAME)
 
 ERROR_DRAW_OBJ = 6
+ERROR_SAVE = 7
+ERROR_SCREEN = 8
+ERROR_OPEN = 9
 
 
 class Mode(Enum):
@@ -290,9 +293,11 @@ class RedactorWindow(QtWidgets.QMainWindow):
             'New', self.init_new_model, shortcut='Ctrl+N')
         action_save = self.new_action(
             'Save', self.save_model, shortcut='Ctrl+S')
+        screen_action = self.new_action(
+            'Save scr', self.screenshot, shortcut='Ctrl+Shift+S')
         action_open = self.new_action(
             'Open', self.open_model, shortcut='Ctrl+O')
-        return action_new, action_save, action_open
+        return action_new, action_save, screen_action, action_open
 
     def get_actions_rotate(self):
         action_rotate_x_add = self.new_action(
@@ -362,25 +367,60 @@ class RedactorWindow(QtWidgets.QMainWindow):
         filename, ok = QtWidgets.QFileDialog.getSaveFileName(self, 'save')
         if not ok:
             return
+        LOGGER.info('model is saving')
         try:
             with open(filename, 'w', encoding='utf8') as file:
                 self.model.save(file)
-        except OSError:
-            QtWidgets.QMessageBox.about(self, 'Error', 'Error')
+        except OSError as e:
+            import traceback
+            LOGGER.error('Error: %s\n%s', e,
+                         ''.join(traceback.format_tb(sys.exc_info()[-1])))
+            print(e, file=sys.stderr)
+            sys.exit(ERROR_SAVE)
+            QtWidgets.QMessageBox.about(self, 'Error', 'OSError')
+        LOGGER.info('model has been saved')
         self.update_display()
 
-    def open_model(self):  # show the window where we can write filename
+    def screenshot(self):
+        filename, ok = QtWidgets.QFileDialog.getSaveFileName(self,
+                                                             'save',
+                                                             'screen.png')
+        if not ok:
+            return
+        screen = QtWidgets.QApplication.primaryScreen()
+        if not filename.endswith('.png'):
+            filename += '.png'
+        LOGGER.info('screenshot is saving')
+        try:
+            screen.grabWindow(self.winId()).save(filename, 'png')
+        except PermissionError as e:
+            import traceback
+            LOGGER.error('Error: %s\n%s', e,
+                         ''.join(traceback.format_tb(sys.exc_info()[-1])))
+            print(e, file=sys.stderr)
+            sys.exit(ERROR_SCREEN)
+            QtWidgets.QMessageBox.about(self, 'Error', 'Permission Error')
+        LOGGER.info('screenshot has been saved')
+
+    def open_model(self):
         filename, ok = QtWidgets.QFileDialog.getOpenFileName(self, 'open')
         if not ok:
             return
         self.model = model.Model()
+        LOGGER.info('model is opening')
         try:
             with open(filename, 'r', encoding='utf8') as file:
                 self.model.open(file)
-        except OSError:
+        except OSError as e:
+            import traceback
+            LOGGER.error('Error: %s\n%s', e,
+                         ''.join(traceback.format_tb(sys.exc_info()[-1])))
+            print(e, file=sys.stderr)
+            sys.exit(ERROR_OPEN)
             QtWidgets.QMessageBox.about(self, 'Error', 'Error')
         self.label.drawer = Drawer(self.model)
         self.update_display()
+        LOGGER.info('model has been opened')
 
     def rotate(self, axis):
         self.model.update_display_matrix(self.rotate_matrix[axis])
