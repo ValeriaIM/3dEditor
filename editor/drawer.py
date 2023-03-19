@@ -32,7 +32,7 @@ def set_painter_params(painter, pen_color=QtGui.QColor(230, 102, 0),
 
 
 class Drawer:
-    def __init__(self, model, origin_coordinates):
+    def __init__(self, model):
         self.model = model
         self.displayed_objects = []
         self.points_display_table = {}
@@ -43,7 +43,6 @@ class Drawer:
         self.ellipse_color = Color.BLUE
 
         self.scene_style_preset = 81
-        self.origin_coordinates = origin_coordinates
         self.axiss_size = 50
         self.axiss_width = 3
 
@@ -67,7 +66,7 @@ class Drawer:
             split_coordinates, zoom, painter)
 
     def paint_objects(self, split_coordinates, zoom, painter):
-        for obj in self.model.objects:
+        for obj in self.model.figures:
             if isinstance(obj, Point):
                 display_coord = self.model.display_vector(
                     obj.to_vector3())
@@ -79,8 +78,9 @@ class Drawer:
             self.displayed_objects.append(obj)
 
     def paint_point(self, point, painter):
-        set_painter_params(painter, pen_color=COLORS[point.color],
-                           brush_color=COLORS[point.color])
+        color = Color(point.color.value)
+        set_painter_params(painter, pen_color=COLORS[color],
+                           brush_color=COLORS[color])
         painter.drawEllipse(int(self.points_display_table[point][0] -
                                 point.WIDTH / 2),
                             int(self.points_display_table[point][1] -
@@ -88,21 +88,24 @@ class Drawer:
                             point.WIDTH, point.WIDTH)
 
     def paint_line(self, line, painter):
-        set_painter_params(painter, pen_color=COLORS[line.color])
+        color = Color(line.color.value)
+        set_painter_params(painter, pen_color=COLORS[color])
         painter.pen().setWidth(line.WIDTH)
         painter.drawLine(
             *self.points_display_table[line.start],
             *self.points_display_table[line.end])
 
     def paint_place(self, place, painter):
-        set_painter_params(painter, pen_color=COLORS[place.color])
+        color = Color(place.color.value)
+        set_painter_params(painter, pen_color=COLORS[color])
         painter.pen().setWidth(place.WIDTH)
         painter.drawConvexPolygon(
             *[QtCore.QPointF(*self.points_display_table[point])
               for point in place.points])
 
     def paint_ellipse(self, ellipse, painter):
-        set_painter_params(painter, pen_color=COLORS[ellipse.color])
+        color = Color(ellipse.color.value)
+        set_painter_params(painter, pen_color=COLORS[color])
         painter.pen().setWidth(ellipse.WIDTH)
 
         p1 = QtCore.QPoint(*self.points_display_table[ellipse.topLeft])
@@ -119,21 +122,21 @@ class Drawer:
         if abs(rect2.height()) < abs(ellipse.ry // 2):
             rect2.setHeight(ellipse.ry // 2)
         rect2.setWidth(ellipse.rx // 2)
-        self.paint_exstra_ellipse(rect2, rect1, ellipse, painter)
+        self.paint_exstra_ellipse(rect2, rect1, color, painter)
 
         if abs(rect3.width()) < abs(ellipse.rx // 2):
             rect3.setWidth(ellipse.rx // 2)
         rect3.setHeight(ellipse.ry // 2)
-        self.paint_exstra_ellipse(rect3, rect1, ellipse, painter)
+        self.paint_exstra_ellipse(rect3, rect1, color, painter)
 
-        set_painter_params(painter, pen_color=COLORS[ellipse.color],
+        set_painter_params(painter, pen_color=COLORS[color],
                            brush_color=QtGui.QColor(0, 0, 0, 0))
         painter.drawEllipse(rect2)
 
-    def paint_exstra_ellipse(self, rect, rect_base, ellipse, painter):
+    def paint_exstra_ellipse(self, rect, rect_base, color, painter):
         center = rect_base.center()
         if abs(rect.width()) <= abs(rect_base.width()) and abs(rect.height()) <= abs(rect_base.height()):
-            set_painter_params(painter, pen_color=COLORS[ellipse.color],
+            set_painter_params(painter, pen_color=COLORS[color],
                                brush_color=QtGui.QColor(0, 0, 0, 0))
         rect.moveCenter(center)
         painter.drawEllipse(rect)

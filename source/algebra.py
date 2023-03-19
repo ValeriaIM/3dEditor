@@ -42,6 +42,9 @@ class Vector3:
     def to_tuple(self):
         return self.x, self.y, self.z
 
+    def to_dict(self):
+        return {"x": self.x, "y": self.y, "z": self.z}
+
 
 class Matrix:
     def __init__(self, string: int, column: int, *args: float):

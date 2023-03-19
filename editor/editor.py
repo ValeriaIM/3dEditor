@@ -15,6 +15,7 @@ LOGGER = logging.getLogger(LOGGER_NAME)
 
 ERROR_DRAW_OBJ = 6
 
+
 class Mode(Enum):
     VIEW = 0
     POINT = 1
@@ -216,16 +217,7 @@ class RedactorWindow(QtWidgets.QMainWindow):
         menubar = self.menuBar()
         menubar.setStyleSheet(style_sheet)
 
-        rotations = menubar.addMenu('Rotates')
-        actions_rotate = self.get_actions_rotate()
-        for action_rotate in actions_rotate:
-            rotations.addAction(action_rotate)
-
-        self.mode_menu = menubar.addMenu('Modes')
-        actions_mode = self.get_actions_mode()
-        for action_mode in actions_mode:
-            action_mode.setCheckable(True)
-            self.mode_menu.addAction(action_mode)
+        self.add_Menus(menubar)
 
         self.toolbar = QtWidgets.QToolBar(self)
         self.addToolBar(QtCore.Qt.LeftToolBarArea, self.toolbar)
@@ -275,6 +267,32 @@ class RedactorWindow(QtWidgets.QMainWindow):
                             math.cos(-rotate_angle))
         }
         return rotate_matrix
+
+    def add_Menus(self, menubar):
+        file = menubar.addMenu('File')
+        actions_file = self.get_actions_file()
+        for action_file in actions_file:
+            file.addAction(action_file)
+
+        rotations = menubar.addMenu('Rotates')
+        actions_rotate = self.get_actions_rotate()
+        for action_rotate in actions_rotate:
+            rotations.addAction(action_rotate)
+
+        self.mode_menu = menubar.addMenu('Modes')
+        actions_mode = self.get_actions_mode()
+        for action_mode in actions_mode:
+            action_mode.setCheckable(True)
+            self.mode_menu.addAction(action_mode)
+
+    def get_actions_file(self):
+        action_new = self.new_action(
+            'New', self.init_new_model, shortcut='Ctrl+N')
+        action_save = self.new_action(
+            'Save', self.save_model, shortcut='Ctrl+S')
+        action_open = self.new_action(
+            'Open', self.open_model, shortcut='Ctrl+O')
+        return action_new, action_save, action_open
 
     def get_actions_rotate(self):
         action_rotate_x_add = self.new_action(
@@ -338,6 +356,32 @@ class RedactorWindow(QtWidgets.QMainWindow):
             set_checkable(action, mode)
         self.update_display()
 
+    def save_model(self):  # show the window where we can write filename
+        if not self.model:
+            return
+        filename, ok = QtWidgets.QFileDialog.getSaveFileName(self, 'save')
+        if not ok:
+            return
+        try:
+            with open(filename, 'w', encoding='utf8') as file:
+                self.model.save(file)
+        except OSError:
+            QtWidgets.QMessageBox.about(self, 'Error', 'Error')
+        self.update_display()
+
+    def open_model(self):  # show the window where we can write filename
+        filename, ok = QtWidgets.QFileDialog.getOpenFileName(self, 'open')
+        if not ok:
+            return
+        self.model = model.Model()
+        try:
+            with open(filename, 'r', encoding='utf8') as file:
+                self.model.open(file)
+        except OSError:
+            QtWidgets.QMessageBox.about(self, 'Error', 'Error')
+        self.label.drawer = Drawer(self.model)
+        self.update_display()
+
     def rotate(self, axis):
         self.model.update_display_matrix(self.rotate_matrix[axis])
         self.update_display()
@@ -345,6 +389,6 @@ class RedactorWindow(QtWidgets.QMainWindow):
     def init_new_model(self):
         del self.model
         self.model = model.Model()
-        self.label.drawer = Drawer(self.model, self.label.origin_coordinates)
+        self.label.drawer = Drawer(self.model)
         self.label.zoom = 1
         self.update_display()
