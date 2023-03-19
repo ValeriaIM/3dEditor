@@ -14,7 +14,7 @@ class Point:
     NAME = 'Point'
 
     def __init__(self, x: int, y: int, z: int,
-                 color=Color.GREEN):
+                 color=Color.BLACK):
         self.x = x
         self.y = y
         self.z = z
@@ -62,10 +62,10 @@ class Line:
 
 class Place:
     WIDTH = 5
-    Name = 'Place'
+    NAME = 'Place'
 
     def __init__(self, points,
-                 color=Color.GREEN):
+                 color=Color.BLACK):
         if points:
             self.points = [point for point in points]
         self.color = color
@@ -75,3 +75,29 @@ class Place:
         for point in self.points:
             str_place += f'|{str(point)}|'
         return str_place
+
+
+class Ellipse:
+    WIDTH = 5
+    NAME = 'Ellipse'
+
+    def __init__(self, pt_topLeft, pt_bottomRight,
+                 color=Color.BLACK):
+        self.center = None
+        self.rx = None
+        self.ry = None
+
+        if pt_topLeft and pt_bottomRight:
+            self.topLeft = pt_topLeft
+            self.bottomRight = pt_bottomRight
+        self.color = color
+
+    def set_move_info(self, rx, ry):
+        self.rx = rx
+        self.ry = ry
+
+    def __str__(self):
+        str_el = 'el!'
+        str_el += f'|{str(self.pt_topLeft)}|'
+        str_el += f'|{str(self.pt_bottomRight)}|'
+        return str_el

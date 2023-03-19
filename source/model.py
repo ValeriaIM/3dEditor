@@ -38,6 +38,9 @@ class Model:
     def add_place(self, points, color):
         self.objects.append(Place(points, color))
 
+    def add_ellipse(self, point1, point2, color):
+        self.objects.append(Ellipse(point1, point2, color))
+
     def display_vector(self, vector: Vector3) -> tuple:
         return (self.matrix_of_display * vector).to_tuple()
 

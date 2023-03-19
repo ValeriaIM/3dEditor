@@ -32,7 +32,7 @@ def set_painter_params(painter, pen_color=QtGui.QColor(230, 102, 0),
 
 
 class Drawer:
-    def __init__(self, model):
+    def __init__(self, model, origin_coordinates):
         self.model = model
         self.displayed_objects = []
         self.points_display_table = {}
@@ -40,15 +40,18 @@ class Drawer:
         self.point_color = Color.GREEN
         self.line_color = Color.BLACK
         self.plane_color = Color.BLUE
+        self.ellipse_color = Color.BLUE
 
         self.scene_style_preset = 81
+        self.origin_coordinates = origin_coordinates
         self.axiss_size = 50
         self.axiss_width = 3
 
         self.draw_table = {
             Point: self.paint_point,
             Line: self.paint_line,
-            Place: self.paint_place
+            Place: self.paint_place,
+            Ellipse: self.paint_ellipse
         }
 
     def update_scene(self, painter, resolution, split_coordinates, zoom):
@@ -97,6 +100,44 @@ class Drawer:
         painter.drawConvexPolygon(
             *[QtCore.QPointF(*self.points_display_table[point])
               for point in place.points])
+
+    def paint_ellipse(self, ellipse, painter):
+        set_painter_params(painter, pen_color=COLORS[ellipse.color])
+        painter.pen().setWidth(ellipse.WIDTH)
+
+        p1 = QtCore.QPoint(*self.points_display_table[ellipse.topLeft])
+        p2 = QtCore.QPoint(*self.points_display_table[ellipse.bottomRight])
+        rect1 = QtCore.QRect(p1, p2)
+        rect2 = QtCore.QRect(p1, p2)
+        rect3 = QtCore.QRect(p1, p2)
+
+        if not ellipse.rx:
+            ellipse.set_move_info(rect1.width() // 2,
+                                  rect1.height() // 2)
+        painter.drawEllipse(rect1)
+
+        if abs(rect2.height()) < abs(ellipse.ry // 2):
+            rect2.setHeight(ellipse.ry // 2)
+        rect2.setWidth(ellipse.rx // 2)
+        self.paint_exstra_ellipse(rect2, rect1, ellipse, painter)
+
+        if abs(rect3.width()) < abs(ellipse.rx // 2):
+            rect3.setWidth(ellipse.rx // 2)
+        rect3.setHeight(ellipse.ry // 2)
+        self.paint_exstra_ellipse(rect3, rect1, ellipse, painter)
+
+        set_painter_params(painter, pen_color=COLORS[ellipse.color],
+                           brush_color=QtGui.QColor(0, 0, 0, 0))
+        painter.drawEllipse(rect2)
+
+    def paint_exstra_ellipse(self, rect, rect_base, ellipse, painter):
+        center = rect_base.center()
+        if abs(rect.width()) <= abs(rect_base.width()) and abs(rect.height()) <= abs(rect_base.height()):
+            set_painter_params(painter, pen_color=COLORS[ellipse.color],
+                               brush_color=QtGui.QColor(0, 0, 0, 0))
+        rect.moveCenter(center)
+        painter.drawEllipse(rect)
+
 
     def draw_coordinates_system(self, painter):
         width = 5

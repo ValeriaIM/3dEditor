@@ -20,6 +20,7 @@ class Mode(Enum):
     POINT = 1
     LINE = 2
     PLACE = 3
+    ELLIPSE = 4
 
 
 style_sheet = """
@@ -92,6 +93,9 @@ class SceneWindow(QtWidgets.QLabel):
             elif self.parent().mode == Mode.PLACE:
                 self.choose_place_points(event)
                 LOGGER.info('place has been added')
+            elif self.parent().mode == Mode.ELLIPSE:
+                self.choose_ellipse_points(event)
+                LOGGER.info('ellipse has been added')
         except Exception as e:
             import traceback
             LOGGER.error('Error: %s\n%s', e,
@@ -145,9 +149,20 @@ class SceneWindow(QtWidgets.QLabel):
             if obj in parent.buffer:
                 if len(parent.buffer) >= 3:
                     self.parent().model.add_place(self.parent().buffer,
-                                              self.drawer.plane_color)
+                                                  self.drawer.plane_color)
             else:
-                self.parent().buffer.append(self.object_to_interact)
+                self.parent().buffer.append(obj)
+
+    def choose_ellipse_points(self, event):
+        self.update_object_to_interact(event)
+        obj = self.object_to_interact
+        if obj and isinstance(obj, Point):
+            self.parent().buffer.append(obj)
+        if len(self.parent().buffer) == 2:
+            self.parent().model.add_ellipse(self.parent().buffer[0],
+                                            self.parent().buffer[1],
+                                            self.drawer.ellipse_color)
+            self.parent().buffer = []
 
     def update_object_to_interact(self, event):
         self.object_to_interact = None
@@ -186,37 +201,7 @@ class RedactorWindow(QtWidgets.QMainWindow):
 
         self.display_axis = True
 
-        rotate_angle = math.pi / 90
-        self.rotate_matrix = {
-            'xplus': Matrix(3, 3, math.cos(rotate_angle),
-                            -math.sin(rotate_angle), 0,
-                            math.sin(rotate_angle),
-                            math.cos(rotate_angle),
-                            0, 0, 0, 1),
-            'zplus': Matrix(3, 3, 1, 0, 0, 0,
-                            math.cos(rotate_angle),
-                            -math.sin(rotate_angle), 0,
-                            math.sin(rotate_angle),
-                            math.cos(rotate_angle)),
-            'zminus': Matrix(3, 3, 1, 0, 0, 0,
-                             math.cos(-rotate_angle),
-                             -math.sin(-rotate_angle), 0,
-                             math.sin(-rotate_angle),
-                             math.cos(-rotate_angle)),
-            'xminus': Matrix(3, 3, math.cos(-rotate_angle),
-                             -math.sin(-rotate_angle), 0,
-                             math.sin(-rotate_angle),
-                             math.cos(-rotate_angle),
-                             0, 0, 0, 1),
-            'yminus': Matrix(3, 3, math.cos(rotate_angle), 0,
-                             math.sin(rotate_angle), 0, 1, 0,
-                             -math.sin(rotate_angle), 0,
-                             math.cos(rotate_angle)),
-            'yplus': Matrix(3, 3, math.cos(-rotate_angle), 0,
-                            math.sin(-rotate_angle), 0, 1, 0,
-                            -math.sin(-rotate_angle), 0,
-                            math.cos(-rotate_angle))
-        }
+        self.rotate_matrix = self.get_initial_rotate_matrix()
 
         self.mode = Mode.VIEW
         self.init_GUI()
@@ -257,6 +242,40 @@ class RedactorWindow(QtWidgets.QMainWindow):
         self.label = SceneWindow(self)
         self.setCentralWidget(self.label)
 
+    def get_initial_rotate_matrix(self):
+        rotate_angle = math.pi / 90
+        rotate_matrix = {
+            'xplus': Matrix(3, 3, math.cos(rotate_angle),
+                            -math.sin(rotate_angle), 0,
+                            math.sin(rotate_angle),
+                            math.cos(rotate_angle),
+                            0, 0, 0, 1),
+            'zplus': Matrix(3, 3, 1, 0, 0, 0,
+                            math.cos(rotate_angle),
+                            -math.sin(rotate_angle), 0,
+                            math.sin(rotate_angle),
+                            math.cos(rotate_angle)),
+            'zminus': Matrix(3, 3, 1, 0, 0, 0,
+                             math.cos(-rotate_angle),
+                             -math.sin(-rotate_angle), 0,
+                             math.sin(-rotate_angle),
+                             math.cos(-rotate_angle)),
+            'xminus': Matrix(3, 3, math.cos(-rotate_angle),
+                             -math.sin(-rotate_angle), 0,
+                             math.sin(-rotate_angle),
+                             math.cos(-rotate_angle),
+                             0, 0, 0, 1),
+            'yminus': Matrix(3, 3, math.cos(rotate_angle), 0,
+                             math.sin(rotate_angle), 0, 1, 0,
+                             -math.sin(rotate_angle), 0,
+                             math.cos(rotate_angle)),
+            'yplus': Matrix(3, 3, math.cos(-rotate_angle), 0,
+                            math.sin(-rotate_angle), 0, 1, 0,
+                            -math.sin(-rotate_angle), 0,
+                            math.cos(-rotate_angle))
+        }
+        return rotate_matrix
+
     def get_actions_rotate(self):
         action_rotate_x_add = self.new_action(
             'X+', lambda _: self.rotate('xplus'), shortcut='S')
@@ -284,7 +303,11 @@ class RedactorWindow(QtWidgets.QMainWindow):
         action_place = self.new_action(
             'Place', lambda _: self.set_mode(Mode.PLACE),
             'pictures/plate.png', '3')
-        return action_point, action_line, action_place
+        action_ellipse = self.new_action(
+            'Ellipse', lambda _: self.set_mode(Mode.ELLIPSE),
+            'pictures/ellipse.png', '4'
+        )
+        return action_point, action_line, action_place, action_ellipse
 
     def get_actions_mode(self):
         action_mode_view = self.new_action(
@@ -322,6 +345,6 @@ class RedactorWindow(QtWidgets.QMainWindow):
     def init_new_model(self):
         del self.model
         self.model = model.Model()
-        self.label.drawer = Drawer(self.model)
+        self.label.drawer = Drawer(self.model, self.label.origin_coordinates)
         self.label.zoom = 1
         self.update_display()
