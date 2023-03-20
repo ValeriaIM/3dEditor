@@ -64,13 +64,13 @@ class Model:
         file.write(str(self))
 
     def __str__(self):
-        description = f'''{json.dumps([vector.to_dict() for vector in self.basis])}
-                          {json.dumps(self.origin.to_dict())}
-                          {json.dumps([vector.to_dict() for vector in self.display_plate_basis])}
-                       '''
+        info = f'''{json.dumps([vector.to_dict() for vector in self.basis])}
+        {json.dumps(self.origin.to_dict())}
+        {json.dumps([vector.to_dict() for vector in self.display_plate_basis])}
+        '''
         for obj in self.figures:
-            description += f'{json.dumps(obj.to_dict())}\n'
-        return description
+            info += f'{json.dumps(obj.to_dict())}\n'
+        return info
 
     def open(self, file):
         data = file.read()
@@ -85,7 +85,8 @@ class Model:
         self.origin = Point(**origin_data)
 
         display_plate_basis_data = json.loads(lines[2])
-        self.display_plate_basis = [Vector3(**v_dict) for v_dict in display_plate_basis_data]
+        self.display_plate_basis = [Vector3(**v_dict) for
+                                    v_dict in display_plate_basis_data]
 
         for line in lines[3:]:
             figure_dict = json.loads(line)
@@ -95,9 +96,11 @@ class Model:
                 figure = Point(**figure_dict)
             elif figure_name == 'Line':
                 del figure_dict['start']['name']
-                figure_dict['start']['color'] = Color(figure_dict['start']['color'])
+                color = Color(figure_dict['start']['color'])
+                figure_dict['start']['color'] = color
                 del figure_dict['end']['name']
-                figure_dict['end']['color'] = Color(figure_dict['end']['color'])
+                color = Color(figure_dict['end']['color'])
+                figure_dict['end']['color'] = color
 
                 figure_dict['start'] = Point(**figure_dict['start'])
                 figure_dict['end'] = Point(**figure_dict['end'])
@@ -119,12 +122,15 @@ class Model:
                 figure = Place(**figure_dict)
             elif figure_name == 'Ellipse':
                 del figure_dict['topLeft']['name']
-                figure_dict['topLeft']['color'] = Color(figure_dict['topLeft']['color'])
+                color = Color(figure_dict['topLeft']['color'])
+                figure_dict['topLeft']['color'] = color
                 del figure_dict['bottomRight']['name']
-                figure_dict['bottomRight']['color'] = Color(figure_dict['bottomRight']['color'])
+                color = Color(figure_dict['bottomRight']['color'])
+                figure_dict['bottomRight']['color'] = color
 
                 figure_dict['topLeft'] = Point(**figure_dict['topLeft'])
-                figure_dict['bottomRight'] = Point(**figure_dict['bottomRight'])
+                p = Point(**figure_dict['bottomRight'])
+                figure_dict['bottomRight'] = p
 
                 figure_dict['color'] = Color(figure_dict['color'])
                 rx = figure_dict.pop('rx')

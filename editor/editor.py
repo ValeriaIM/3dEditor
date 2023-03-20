@@ -280,6 +280,7 @@ class SceneWindow(QtWidgets.QLabel):
         d = math.sqrt(((x - cx) / a) ** 2 + ((y - cy) / b) ** 2)
         return d < 1
 
+
 def set_checkable(action, mode):
     condition = 'Mode.' + action.iconText().upper()
     if action.isChecked() and condition != str(mode):

@@ -143,12 +143,12 @@ class Drawer:
 
     def paint_extra_ellipse(self, rect, rect_base, color, painter):
         center = rect_base.center()
-        if abs(rect.width()) <= abs(rect_base.width()) and abs(rect.height()) <= abs(rect_base.height()):
+        if abs(rect.width()) <= abs(rect_base.width()) and \
+                abs(rect.height()) <= abs(rect_base.height()):
             set_painter_params(painter, pen_color=COLORS[color],
                                brush_color=QtGui.QColor(0, 0, 0, 0))
         rect.moveCenter(center)
         painter.drawEllipse(rect)
-
 
     def draw_coordinates_system(self, painter):
         width = 5

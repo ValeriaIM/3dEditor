@@ -25,8 +25,6 @@ except Exception as e:
     sys.exit(ERROR_QT_VERSION)
 
 import argparse
-from contextlib import contextmanager
-import itertools
 import logging
 
 __version__ = '1.1'
