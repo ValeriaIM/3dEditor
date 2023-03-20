@@ -73,8 +73,8 @@ class Line:
 
     def __add__(self, other):
         if isinstance(other, Vector3):
-            for point in self.points:
-                point + other
+            self.start + other
+            self.end + other
 
     # Нужно во время отладки
     def __str__(self):
@@ -100,6 +100,11 @@ class Place:
         self.color = color
         self.WIDTH = width
 
+    def __add__(self, other):
+        if isinstance(other, Vector3):
+            for point in self.points:
+                point + other
+
     def __str__(self):
         str_place = 'pl!'
         for point in self.points:
@@ -122,6 +127,7 @@ class Ellipse:
         self.rx = None
         self.ry = None
         self.WIDTH = width
+        self.extra_el = []
 
         if topLeft and bottomRight:
             self.topLeft = topLeft
@@ -131,6 +137,16 @@ class Ellipse:
     def set_move_info(self, rx: int, ry: int):
         self.rx = rx
         self.ry = ry
+
+    def add_extra_el(self, el):
+        self.extra_el.append(el)
+
+    def __add__(self, other):
+        if isinstance(other, Vector3):
+            self.topLeft + other
+            self.bottomRight + other
+            self.rx = None
+            self.ry = None
 
     def __str__(self):
         str_el = 'el!'

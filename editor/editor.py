@@ -1,4 +1,8 @@
+import time
+
 from PyQt5 import QtGui, QtWidgets, QtCore
+from PyQt5.QtCore import QPoint
+
 from source import model
 from source.algebra import *
 from source.figures import *
@@ -21,10 +25,11 @@ ERROR_OPEN = 9
 
 class Mode(Enum):
     VIEW = 0
-    POINT = 1
-    LINE = 2
-    PLACE = 3
-    ELLIPSE = 4
+    EDIT = 1
+    POINT = 2
+    LINE = 3
+    PLACE = 4
+    ELLIPSE = 5
 
 
 style_sheet = """
@@ -53,8 +58,10 @@ class SceneWindow(QtWidgets.QLabel):
         self.last_y = 0
         self.zoom = 1
 
+        self.last_time_clicked = time.time()
+        self.forget_object_delay = 0.05
+
         self.object_to_interact = None
-        self.object_to_modify = None
         self.model = None
         self.drawer = None
 
@@ -115,13 +122,17 @@ class SceneWindow(QtWidgets.QLabel):
         if self.parent().mode == Mode.VIEW:
             self.origin_coordinates[0] += event.x() / self.zoom - self.last_x
             self.origin_coordinates[1] += event.y() / self.zoom - self.last_y
+        elif self.parent().mode == Mode.EDIT:
+            self.edit_object(event)
 
         self.refresh_interaction_variables(event)
+
         self.parent().update_display()
 
     def refresh_interaction_variables(self, event):
         self.last_x = event.x() / self.zoom
         self.last_y = event.y() / self.zoom
+        self.last_time_clicked = time.time()
 
     def set_point(self, event):
         x = self.origin_coordinates[0]
@@ -168,6 +179,17 @@ class SceneWindow(QtWidgets.QLabel):
                                             self.drawer.ellipse_color)
             self.parent().buffer = []
 
+    def edit_object(self, event):
+        if self.object_to_interact:
+            if time.time() - self.last_time_clicked < self.forget_object_delay:
+                self.object_to_interact + (
+                        self.parent().model.display_plate_basis[0] *
+                        (event.x() / self.zoom - self.last_x) +
+                        self.parent().model.display_plate_basis[1] *
+                        (event.y() / self.zoom - self.last_y))
+        else:
+            self.update_object_to_interact(event)
+
     def update_object_to_interact(self, event):
         self.object_to_interact = None
         for obj in self.drawer.displayed_objects:
@@ -176,11 +198,87 @@ class SceneWindow(QtWidgets.QLabel):
                 if obj.WIDTH > distance:
                     self.object_to_interact = obj
                     break
+            elif isinstance(obj, Line):
+                distance = self.get_distance_to_line(event, obj)
+                if obj.WIDTH > distance:
+                    self.object_to_interact = obj
+                    break
+            elif isinstance(obj, Place):
+                is_inside = self.is_inside_place(event, obj)
+                if is_inside:
+                    self.object_to_interact = obj
+                    break
+            elif isinstance(obj, Ellipse):
+                is_inside = self.is_inside_ellipse(event, obj)
+                if is_inside:
+                    self.object_to_interact = obj
+                    break
 
     def get_distance_to_point(self, event, point):
         return get_distance(event.x(), event.y(),
                             *self.drawer.points_display_table[point])
 
+    def get_distance_to_line(self, event, line):
+        return (self.get_distance_to_point(event, line.start) +
+                self.get_distance_to_point(event, line.end) -
+                get_distance(
+                    *self.drawer.points_display_table[line.start],
+                    *self.drawer.points_display_table[line.end]))
+
+    def is_inside_place(self, event, place):
+        num_points = len(place.points)
+        x, y = event.x(), event.y()
+        sign = None
+
+        for i in range(num_points):
+            p1 = place.points[i]
+            p2 = place.points[(i + 1) % num_points]
+            x1, y1 = self.drawer.points_display_table[p1]
+            x2, y2 = self.drawer.points_display_table[p2]
+
+            # вычисляем векторы стороны и вектор до точки
+            vx, vy = x2 - x1, y2 - y1
+            wx, wy = x - x1, y - y1
+
+            # выч-м знак векторного произведения
+            cross_product = vx * wy - vy * wx
+
+            if sign is None:
+                sign = cross_product
+            elif cross_product != 0 and cross_product * sign < 0:
+                return False
+
+        return True
+
+    def is_inside_ellipse(self, event, ellipse):
+        is_inside = self.check_ellipse(event, ellipse)
+        if is_inside:
+            return True
+
+        if ellipse.extra_el:
+            for el in ellipse.extra_el:
+                is_inside = self.check_ellipse(event, el)
+                if is_inside:
+                    return True
+        else:
+            return False
+
+    def check_ellipse(self, event, ellipse):
+        x, y = event.x(), event.y()
+        x1, y1 = 0, 0
+        x2, y2 = 0, 0
+        if isinstance(ellipse.topLeft, QPoint):
+            x1, y1 = ellipse.topLeft.x(), ellipse.topLeft.y()
+            x2, y2 = ellipse.bottomRight.x(), ellipse.bottomRight.y()
+        else:
+            x1, y1 = self.drawer.points_display_table[ellipse.topLeft]
+            x2, y2 = self.drawer.points_display_table[ellipse.bottomRight]
+        cx = (x1 + x2) / 2
+        cy = (y1 + y2) / 2
+        a = (x2 - x1) / 2
+        b = (y2 - y1) / 2
+        d = math.sqrt(((x - cx) / a) ** 2 + ((y - cy) / b) ** 2)
+        return d < 1
 
 def set_checkable(action, mode):
     condition = 'Mode.' + action.iconText().upper()
@@ -335,7 +433,9 @@ class RedactorWindow(QtWidgets.QMainWindow):
     def get_actions_mode(self):
         action_mode_view = self.new_action(
             'View', lambda _: self.set_mode(Mode.VIEW), shortcut='V')
-        return action_mode_view, action_mode_view
+        action_mode_edit = self.new_action(
+            'Edit', lambda _: self.set_mode(Mode.EDIT), shortcut='E')
+        return action_mode_view, action_mode_edit
 
     def new_action(self, name, connect_with, icon=None, shortcut=None):
         action = QtWidgets.QAction(
@@ -431,4 +531,6 @@ class RedactorWindow(QtWidgets.QMainWindow):
         self.model = model.Model()
         self.label.drawer = Drawer(self.model)
         self.label.zoom = 1
+        self.buffer = []
+        self.set_mode(Mode.VIEW)
         self.update_display()

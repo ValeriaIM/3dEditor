@@ -122,18 +122,26 @@ class Drawer:
         if abs(rect2.height()) < abs(ellipse.ry // 2):
             rect2.setHeight(ellipse.ry // 2)
         rect2.setWidth(ellipse.rx // 2)
-        self.paint_exstra_ellipse(rect2, rect1, color, painter)
+        if len(ellipse.extra_el) < 2:
+            ellipse.add_extra_el(Ellipse(rect2.topLeft(),
+                                         rect2.bottomRight(),
+                                         ellipse.color))
+        self.paint_extra_ellipse(rect2, rect1, color, painter)
 
         if abs(rect3.width()) < abs(ellipse.rx // 2):
             rect3.setWidth(ellipse.rx // 2)
         rect3.setHeight(ellipse.ry // 2)
-        self.paint_exstra_ellipse(rect3, rect1, color, painter)
+        if len(ellipse.extra_el) < 2:
+            ellipse.add_extra_el(Ellipse(rect3.topLeft(),
+                                         rect3.bottomRight(),
+                                         ellipse.color))
+        self.paint_extra_ellipse(rect3, rect1, color, painter)
 
         set_painter_params(painter, pen_color=COLORS[color],
                            brush_color=QtGui.QColor(0, 0, 0, 0))
         painter.drawEllipse(rect2)
 
-    def paint_exstra_ellipse(self, rect, rect_base, color, painter):
+    def paint_extra_ellipse(self, rect, rect_base, color, painter):
         center = rect_base.center()
         if abs(rect.width()) <= abs(rect_base.width()) and abs(rect.height()) <= abs(rect_base.height()):
             set_painter_params(painter, pen_color=COLORS[color],
