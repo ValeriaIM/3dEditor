@@ -20,3 +20,629 @@
 2023-03-20 17:58:08,286 [INFO <3d-editor.editor>] ellipse has been added
 2023-03-20 17:58:09,389 [INFO <3d-editor.editor>] ellipse has been added
 2023-03-20 17:58:09,389 [INFO <3d-editor.editor>] ellipse has been added
+2023-03-20 21:37:13,413 [ERROR <3d-editor>] Error: 
+  File "C:\Users\mir_s\PycharmProjects\3dEditor\main.py", line 110, in main
+    application.exec_()
+
+2023-03-21 07:31:57,317 [INFO <3d-editor>] GUI Application started
+2023-03-21 07:31:57,869 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 07:32:04,194 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:32:04,194 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:32:04,767 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:32:04,767 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:32:07,266 [INFO <3d-editor.editor>] ellipse has been added
+2023-03-21 07:32:07,266 [INFO <3d-editor.editor>] ellipse has been added
+2023-03-21 07:32:08,804 [INFO <3d-editor.editor>] ellipse has been added
+2023-03-21 07:32:08,804 [INFO <3d-editor.editor>] ellipse has been added
+2023-03-21 07:32:14,226 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:32:14,226 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:32:16,685 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:32:16,685 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:32:17,958 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:32:17,958 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:32:19,203 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:32:19,203 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:32:20,319 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:32:20,319 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:32:56,671 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:32:56,671 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:32:57,342 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:32:57,342 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:33:00,441 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:33:00,441 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:33:01,723 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:33:01,723 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:33:02,960 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:33:02,960 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:33:04,061 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:33:04,061 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:33:47,602 [INFO <3d-editor>] GUI Application started
+2023-03-21 07:33:47,921 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 07:33:51,505 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:33:51,505 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:33:52,045 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:33:52,045 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:33:52,672 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:33:52,672 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:33:54,756 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:33:54,756 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:33:56,027 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:33:56,027 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:33:56,943 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:33:56,943 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:33:57,852 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:33:57,852 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:05,455 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:34:05,455 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:34:06,044 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:34:06,044 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:34:08,526 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:34:08,526 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:34:11,653 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:11,653 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:12,862 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:12,862 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:14,061 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:14,061 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:15,156 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:15,156 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:50,782 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:34:50,782 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:34:51,734 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:34:51,734 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:34:52,507 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:34:52,507 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:34:53,080 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:34:53,080 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:34:55,954 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:55,954 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:56,906 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:56,906 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:58,183 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:58,183 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:59,250 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:34:59,250 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:35:00,103 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:35:00,103 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:35:06,879 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:35:06,879 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:35:07,835 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:35:07,835 [INFO <3d-editor.editor>] point has been added
+2023-03-21 07:35:10,038 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:35:10,038 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:35:11,553 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:35:11,553 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:35:12,829 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:35:12,829 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:35:13,967 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:35:13,967 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:35:16,946 [INFO <3d-editor.editor>] place has been added
+2023-03-21 07:35:16,946 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:52:17,828 [INFO <3d-editor>] GUI Application started
+2023-03-21 08:52:18,144 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 08:52:20,229 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:52:20,229 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:52:20,788 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:52:20,788 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:52:24,980 [INFO <3d-editor.editor>] line has been added
+2023-03-21 08:52:24,980 [INFO <3d-editor.editor>] line has been added
+2023-03-21 08:52:26,065 [INFO <3d-editor.editor>] line has been added
+2023-03-21 08:52:26,065 [INFO <3d-editor.editor>] line has been added
+2023-03-21 08:52:33,261 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:52:33,261 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:52:33,776 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:52:33,776 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:52:35,634 [INFO <3d-editor.editor>] line has been added
+2023-03-21 08:52:35,634 [INFO <3d-editor.editor>] line has been added
+2023-03-21 08:52:36,744 [INFO <3d-editor.editor>] line has been added
+2023-03-21 08:52:36,744 [INFO <3d-editor.editor>] line has been added
+2023-03-21 08:52:56,570 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:52:56,570 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:52:57,675 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:52:57,675 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:53:00,357 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:53:00,357 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:53:01,347 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:53:01,347 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:53:02,505 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:53:02,505 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:53:04,171 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:53:04,171 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:53:06,098 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:53:06,098 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:17,607 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:54:17,607 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:54:18,113 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:54:18,113 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:54:19,073 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:54:19,073 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:54:19,652 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:54:19,652 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:54:22,013 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:22,013 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:23,017 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:23,017 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:24,166 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:24,166 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:25,055 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:25,055 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:25,892 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:25,892 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:31,582 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:54:31,582 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:54:32,427 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:54:32,427 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:54:34,814 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:34,814 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:35,841 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:35,841 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:38,492 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:38,492 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:39,453 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:39,453 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:40,474 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:54:40,474 [INFO <3d-editor.editor>] place has been added
+2023-03-21 08:59:10,248 [INFO <3d-editor>] GUI Application started
+2023-03-21 08:59:21,771 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 08:59:30,246 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:59:30,246 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:59:51,524 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:59:51,524 [INFO <3d-editor.editor>] point has been added
+2023-03-21 08:59:53,977 [INFO <3d-editor.editor>] line has been added
+2023-03-21 08:59:53,977 [INFO <3d-editor.editor>] line has been added
+2023-03-21 08:59:55,023 [INFO <3d-editor.editor>] line has been added
+2023-03-21 08:59:55,023 [INFO <3d-editor.editor>] line has been added
+2023-03-21 09:00:09,925 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:00:09,925 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:00:11,096 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:00:11,096 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:00:13,894 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:00:13,894 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:00:17,643 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:17,643 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:18,783 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:18,783 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:19,721 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:19,721 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:21,017 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:21,017 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:38,337 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:00:38,337 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:00:41,933 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:00:41,933 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:00:44,666 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:44,666 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:46,885 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:46,885 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:47,994 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:47,994 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:49,759 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:49,759 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:51,838 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:00:51,838 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:17:38,245 [INFO <3d-editor>] GUI Application started
+2023-03-21 09:17:38,547 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 09:17:41,602 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:17:41,602 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:19:50,745 [INFO <3d-editor>] GUI Application started
+2023-03-21 09:19:51,046 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 09:19:52,903 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:19:52,903 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:19:55,668 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:19:55,668 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:19:56,901 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:19:56,901 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:19:57,417 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:19:57,417 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:20:00,244 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:00,244 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:01,807 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:01,807 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:02,962 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:02,962 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:03,978 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:03,978 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:05,556 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:05,556 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:19,287 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:20:19,287 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:20:20,396 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:20:20,396 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:20:22,286 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:22,286 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:23,473 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:23,473 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:24,629 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:24,629 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:25,629 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:25,629 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:26,566 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:20:26,566 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:27:10,736 [INFO <3d-editor>] GUI Application started
+2023-03-21 09:27:17,865 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 09:27:21,201 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:21,201 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:21,654 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:21,654 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:22,639 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:22,639 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:23,185 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:23,185 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:25,156 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:25,156 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:27,892 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:27,892 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:32,753 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:32,753 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:33,206 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:33,206 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:34,065 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:34,065 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:35,425 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:35,425 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:38,096 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:27:38,096 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:27:39,221 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:27:39,221 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:27:40,533 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:27:40,533 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:27:41,595 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:27:41,595 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:27:43,063 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:27:43,063 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:27:55,470 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:55,470 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:56,345 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:56,345 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:27:58,543 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:27:58,543 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:27:59,652 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:27:59,652 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:28:01,620 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:28:01,620 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:28:02,995 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:28:02,995 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:28:04,338 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:28:04,338 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:32:04,091 [INFO <3d-editor>] GUI Application started
+2023-03-21 09:32:09,422 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 09:32:17,506 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:32:17,506 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:37:09,238 [INFO <3d-editor>] GUI Application started
+2023-03-21 09:37:14,437 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 09:37:16,737 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:37:16,737 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:37:18,282 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:37:18,282 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:37:18,829 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:37:18,829 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:37:20,281 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:37:20,281 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:37:23,240 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:23,240 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:24,505 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:24,505 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:25,552 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:25,552 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:26,661 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:26,661 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:27,817 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:27,817 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:34,737 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:34,737 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:40,205 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:37:40,205 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:37:41,282 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:37:41,282 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:37:43,688 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:43,688 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:44,813 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:44,813 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:45,953 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:45,953 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:47,172 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:47,172 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:48,781 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:37:48,781 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:40:37,489 [INFO <3d-editor>] GUI Application started
+2023-03-21 09:40:37,805 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 09:40:39,921 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:40:39,921 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:40:40,405 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:40:40,405 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:40:41,593 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:40:41,593 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:40:42,545 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:40:42,545 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:40:45,536 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:40:45,536 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:40:46,613 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:40:46,613 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:40:47,582 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:40:47,582 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:40:48,613 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:40:48,613 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:40:49,613 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:40:49,613 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:40:56,261 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:40:56,261 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:40:57,089 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:40:57,089 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:41:00,698 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:41:00,698 [INFO <3d-editor.editor>] point has been added
+2023-03-21 09:41:05,087 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:41:05,087 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:41:06,165 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:41:06,165 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:41:07,133 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:41:07,133 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:41:08,555 [INFO <3d-editor.editor>] place has been added
+2023-03-21 09:41:08,555 [INFO <3d-editor.editor>] place has been added
+2023-03-21 10:56:36,069 [INFO <3d-editor>] GUI Application started
+2023-03-21 10:56:36,978 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 10:56:38,885 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:38,885 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:39,729 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:39,729 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:41,119 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:41,119 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:41,806 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:41,806 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:43,980 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:43,980 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:49,258 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:49,258 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:49,867 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:49,867 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:50,460 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:50,460 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:51,319 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:51,319 [INFO <3d-editor.editor>] point has been added
+2023-03-21 10:56:53,850 [INFO <3d-editor.editor>] place has been added
+2023-03-21 10:56:53,850 [INFO <3d-editor.editor>] place has been added
+2023-03-21 10:56:55,100 [INFO <3d-editor.editor>] place has been added
+2023-03-21 10:56:55,100 [INFO <3d-editor.editor>] place has been added
+2023-03-21 10:56:56,209 [INFO <3d-editor.editor>] place has been added
+2023-03-21 10:56:56,209 [INFO <3d-editor.editor>] place has been added
+2023-03-21 10:56:57,256 [INFO <3d-editor.editor>] place has been added
+2023-03-21 10:56:57,256 [INFO <3d-editor.editor>] place has been added
+2023-03-21 10:56:58,255 [INFO <3d-editor.editor>] place has been added
+2023-03-21 10:56:58,255 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:16,389 [INFO <3d-editor>] GUI Application started
+2023-03-21 11:00:16,726 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 11:00:18,668 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:18,668 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:19,105 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:19,105 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:19,933 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:19,933 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:20,667 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:20,667 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:22,862 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:22,862 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:23,800 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:23,800 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:28,950 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:28,950 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:29,372 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:29,372 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:30,184 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:30,184 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:30,715 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:30,715 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:32,101 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:32,101 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:33,382 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:33,382 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:34,350 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:34,350 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:35,540 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:35,540 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:36,587 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:36,587 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:41,773 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:41,773 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:42,757 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:42,757 [INFO <3d-editor.editor>] point has been added
+2023-03-21 11:00:47,991 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:47,991 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:48,882 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:48,882 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:49,757 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:49,757 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:50,569 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:50,569 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:51,959 [INFO <3d-editor.editor>] place has been added
+2023-03-21 11:00:51,959 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:07,431 [INFO <3d-editor>] GUI Application started
+2023-03-21 16:42:08,605 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 16:42:13,400 [INFO <3d-editor.editor>] point has been added
+2023-03-21 16:42:13,400 [INFO <3d-editor.editor>] point has been added
+2023-03-21 16:42:13,915 [INFO <3d-editor.editor>] point has been added
+2023-03-21 16:42:13,915 [INFO <3d-editor.editor>] point has been added
+2023-03-21 16:42:15,247 [INFO <3d-editor.editor>] point has been added
+2023-03-21 16:42:15,247 [INFO <3d-editor.editor>] point has been added
+2023-03-21 16:42:16,121 [INFO <3d-editor.editor>] point has been added
+2023-03-21 16:42:16,121 [INFO <3d-editor.editor>] point has been added
+2023-03-21 16:42:18,733 [INFO <3d-editor.editor>] point has been added
+2023-03-21 16:42:18,733 [INFO <3d-editor.editor>] point has been added
+2023-03-21 16:42:22,280 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:22,280 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:23,259 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:23,259 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:24,143 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:24,143 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:25,488 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:25,488 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:26,533 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:26,533 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:31,984 [INFO <3d-editor.editor>] point has been added
+2023-03-21 16:42:31,984 [INFO <3d-editor.editor>] point has been added
+2023-03-21 16:42:32,906 [INFO <3d-editor.editor>] point has been added
+2023-03-21 16:42:32,906 [INFO <3d-editor.editor>] point has been added
+2023-03-21 16:42:37,341 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:37,341 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:38,215 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:38,215 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:39,356 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:39,356 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:40,651 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:40,651 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:42,369 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:42:42,369 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:15,888 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:15,888 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:16,951 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:16,951 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:18,334 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:18,334 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:19,403 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:19,403 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:20,358 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:20,358 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:26,295 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:26,295 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:27,656 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:27,656 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:28,959 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:28,959 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:30,153 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:30,153 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:31,861 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:45:31,861 [INFO <3d-editor.editor>] place has been added
+2023-03-21 16:48:39,394 [INFO <3d-editor.editor>] model is saving
+2023-03-21 16:48:39,394 [INFO <3d-editor.editor>] model is saving
+2023-03-21 16:48:39,403 [INFO <3d-editor.editor>] model has been saved
+2023-03-21 16:48:39,403 [INFO <3d-editor.editor>] model has been saved
+2023-03-21 17:34:02,663 [INFO <3d-editor>] GUI Application started
+2023-03-21 17:34:28,806 [INFO <3d-editor>] GUI Application started
+2023-03-21 17:35:09,996 [INFO <3d-editor>] GUI Application started
+2023-03-21 17:36:02,731 [INFO <3d-editor>] GUI Application started
+2023-03-21 17:38:41,679 [INFO <3d-editor>] GUI Application started
+2023-03-21 17:38:57,586 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 17:39:11,896 [INFO <3d-editor.editor>] model is opening
+2023-03-21 17:39:11,896 [INFO <3d-editor.editor>] model is opening
+2023-03-21 17:39:58,266 [INFO <3d-editor>] GUI Application started
+2023-03-21 17:40:05,620 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 17:41:33,708 [INFO <3d-editor.editor>] model is opening
+2023-03-21 17:41:33,708 [INFO <3d-editor.editor>] model is opening
+2023-03-21 17:42:49,374 [INFO <3d-editor>] GUI Application started
+2023-03-21 17:42:59,431 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 17:43:05,224 [INFO <3d-editor.editor>] model is opening
+2023-03-21 17:43:05,224 [INFO <3d-editor.editor>] model is opening
+2023-03-21 17:43:57,116 [INFO <3d-editor>] GUI Application started
+2023-03-21 17:44:02,504 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 17:44:07,837 [INFO <3d-editor.editor>] model is opening
+2023-03-21 17:44:07,837 [INFO <3d-editor.editor>] model is opening
+2023-03-21 17:45:46,191 [INFO <3d-editor>] GUI Application started
+2023-03-21 17:45:52,451 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 17:46:14,428 [INFO <3d-editor.editor>] model is opening
+2023-03-21 17:46:14,428 [INFO <3d-editor.editor>] model is opening
+2023-03-21 17:55:40,820 [INFO <3d-editor>] GUI Application started
+2023-03-21 17:55:45,840 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 17:55:52,037 [INFO <3d-editor.editor>] model is opening
+2023-03-21 17:55:52,037 [INFO <3d-editor.editor>] model is opening
+2023-03-21 17:57:19,945 [INFO <3d-editor>] GUI Application started
+2023-03-21 17:57:28,010 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 17:57:32,740 [INFO <3d-editor.editor>] model is opening
+2023-03-21 17:57:32,740 [INFO <3d-editor.editor>] model is opening
+2023-03-21 17:59:20,815 [INFO <3d-editor>] GUI Application started
+2023-03-21 17:59:24,548 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 17:59:31,813 [INFO <3d-editor.editor>] model is opening
+2023-03-21 17:59:31,813 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:00:12,599 [INFO <3d-editor>] GUI Application started
+2023-03-21 18:00:20,027 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 18:00:24,939 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:00:24,939 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:01:09,190 [INFO <3d-editor>] GUI Application started
+2023-03-21 18:01:19,187 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 18:01:23,803 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:01:23,803 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:02:10,774 [INFO <3d-editor>] GUI Application started
+2023-03-21 18:02:15,063 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 18:02:24,018 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:02:24,018 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:09:15,256 [INFO <3d-editor>] GUI Application started
+2023-03-21 18:09:25,339 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 18:09:31,669 [INFO <3d-editor.editor>] point has been added
+2023-03-21 18:09:31,669 [INFO <3d-editor.editor>] point has been added
+2023-03-21 18:09:32,121 [INFO <3d-editor.editor>] point has been added
+2023-03-21 18:09:32,121 [INFO <3d-editor.editor>] point has been added
+2023-03-21 18:09:32,871 [INFO <3d-editor.editor>] point has been added
+2023-03-21 18:09:32,871 [INFO <3d-editor.editor>] point has been added
+2023-03-21 18:09:33,946 [INFO <3d-editor.editor>] point has been added
+2023-03-21 18:09:33,946 [INFO <3d-editor.editor>] point has been added
+2023-03-21 18:09:36,259 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:36,259 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:37,306 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:37,306 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:38,337 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:38,337 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:39,446 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:39,446 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:40,462 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:40,462 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:46,304 [INFO <3d-editor.editor>] point has been added
+2023-03-21 18:09:46,304 [INFO <3d-editor.editor>] point has been added
+2023-03-21 18:09:47,226 [INFO <3d-editor.editor>] point has been added
+2023-03-21 18:09:47,226 [INFO <3d-editor.editor>] point has been added
+2023-03-21 18:09:53,037 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:53,037 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:54,037 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:54,037 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:55,255 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:55,255 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:56,177 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:09:56,177 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:10:06,470 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:10:06,470 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:10:07,330 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:10:07,330 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:10:08,736 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:10:08,736 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:10:10,110 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:10:10,110 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:10:11,344 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:10:11,344 [INFO <3d-editor.editor>] place has been added
+2023-03-21 18:11:06,761 [INFO <3d-editor>] GUI Application started
+2023-03-21 18:11:07,114 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 18:11:12,301 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:11:12,301 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:11:24,123 [INFO <3d-editor>] GUI Application started
+2023-03-21 18:11:24,484 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 18:11:28,576 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:11:28,576 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:13:33,531 [INFO <3d-editor>] GUI Application started
+2023-03-21 18:13:33,868 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 18:14:11,644 [INFO <3d-editor>] GUI Application started
+2023-03-21 18:14:11,970 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 18:14:18,237 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:14:18,237 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:15:18,628 [INFO <3d-editor>] GUI Application started
+2023-03-21 18:15:18,959 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 18:15:24,586 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:15:24,586 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:17:45,818 [INFO <3d-editor>] GUI Application started
+2023-03-21 18:17:46,155 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 18:17:50,636 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:17:50,636 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:19:43,168 [INFO <3d-editor>] GUI Application started
+2023-03-21 18:19:43,555 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 18:19:57,003 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:19:57,003 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:20:28,603 [INFO <3d-editor.editor>] model has been opened
+2023-03-21 18:20:28,603 [INFO <3d-editor.editor>] model has been opened
+2023-03-21 18:23:00,977 [INFO <3d-editor>] GUI Application started
+2023-03-21 18:23:01,347 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 18:23:05,353 [INFO <3d-editor.editor>] point has been added
+2023-03-21 18:23:05,353 [INFO <3d-editor.editor>] point has been added
+2023-03-21 18:23:09,467 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:23:09,467 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:23:09,481 [INFO <3d-editor.editor>] model has been opened
+2023-03-21 18:23:09,481 [INFO <3d-editor.editor>] model has been opened
+2023-03-21 18:24:55,385 [INFO <3d-editor>] GUI Application started
+2023-03-21 18:24:55,727 [INFO <3d-editor>] Window OK. Start application...
+2023-03-21 18:25:01,246 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:25:01,246 [INFO <3d-editor.editor>] model is opening
+2023-03-21 18:25:01,259 [INFO <3d-editor.editor>] model has been opened
+2023-03-21 18:25:01,259 [INFO <3d-editor.editor>] model has been opened

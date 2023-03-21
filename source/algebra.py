@@ -29,6 +29,12 @@ class Vector3:
         elif isinstance(other, float) or isinstance(other, int):
             return Vector3(self.x * other, self.y * other, self.z * other)
 
+    @staticmethod
+    def dot_product(v1, v2):
+        t1 = v1.to_tuple()
+        t2 = v2.to_tuple()
+        return sum(i * j for i, j in zip(t1, t2))
+
     def __eq__(self, other):
         return (isinstance(other, Vector3) and self.x == other.x and
                 self.y == other.y and self.z == other.z)

@@ -20,6 +20,7 @@ class Model:
         self.origin = Point(0, 0, 0)
         self.init_display_settings()
         self.figures = []
+        self.viewer_position = Vector3(0, 0, 2000)
 
     def init_display_settings(self):
         self.display_plate_basis = [Vector3(0, 0, 1),
@@ -143,3 +144,66 @@ class Model:
             self.figures.append(figure)
 
         self.update_display_matrix(None)
+
+    @staticmethod
+    def newell_algorithm(vertices):
+        # Initialize normal vector
+        normal = [0, 0, 0]
+
+        # Calculate the normal vector using Newell's algorithm
+        for i in range(len(vertices)):
+            j = (i + 1) % len(vertices)
+            normal[0] += (vertices[i].y - vertices[j].y) * (vertices[i].z + vertices[j].z)
+            normal[1] += (vertices[i].z - vertices[j].z) * (vertices[i].x + vertices[j].x)
+            normal[2] += (vertices[i].x - vertices[j].x) * (vertices[i].y + vertices[j].y)
+
+        # Normalize the normal vector
+        magnitude = (normal[0] ** 2 + normal[1] ** 2 + normal[2] ** 2) ** 0.5
+        normal = [n / magnitude for n in normal]
+
+        return normal
+    @staticmethod
+    def check_overlap(place1, place2):
+        # Check if the bounding boxes of the places overlap in the Z direction
+        min_z1 = min([v.z for v in place1])
+        max_z1 = max([v.z for v in place1])
+        min_z2 = min([v.z for v in place2])
+        max_z2 = max([v.z for v in place2])
+        if min_z1 > max_z2 or max_z1 < min_z2:
+            return False
+
+        # Check for X and Y overlap
+        min_x1 = min([v.x for v in place1])
+        max_x1 = max([v.x for v in place1])
+        min_x2 = min([v.x for v in place2])
+        max_x2 = max([v.x for v in place2])
+        if max_x1 < min_x2 or min_x1 > max_x2:
+            return False
+
+        min_y1 = min([v.y for v in place1])
+        max_y1 = max([v.y for v in place1])
+        min_y2 = min([v.y for v in place2])
+        max_y2 = max([v.y for v in place2])
+        if max_y1 < min_y2 or min_y1 > max_y2:
+            return False
+
+        # Check that all vertices of P are behind the plane of Q
+        normal = Model.newell_algorithm(place2)
+        for vertex in place1:
+            v = [vertex.x, vertex.y, vertex.z]
+            dot_product = sum([v[i] * normal[i] for i in range(3)])
+            if dot_product >= normal[2]:
+                return False
+
+        # Check that all vertices of Q are in front of the plane of P
+        normal = Model.newell_algorithm(place1)
+        for vertex in place2:
+            v = [vertex.x, vertex.y, vertex.z]
+            dot_product = sum([v[i] * normal[i] for i in range(3)])
+            if dot_product <= normal[2]:
+                return False
+
+        # Check that the rasterization of P and Q do not overlap
+        # тут должно быть разделение плоскостей и повторная проверка
+
+        return True

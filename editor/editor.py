@@ -165,6 +165,7 @@ class SceneWindow(QtWidgets.QLabel):
                 if len(parent.buffer) >= 3:
                     self.parent().model.add_place(self.parent().buffer,
                                                   self.drawer.plane_color)
+                    self.parent().buffer = []
             else:
                 self.parent().buffer.append(obj)
 

@@ -3,6 +3,8 @@ from PyQt5 import QtGui, QtCore
 from enum import Enum
 import logging
 
+from source.model import Model
+
 LOGGER_NAME = '3d-editor.drawer'
 LOGGER = logging.getLogger(LOGGER_NAME)
 
@@ -74,8 +76,43 @@ class Drawer:
                                                       split_coordinates[0]),
                                                   int(display_coord[1] * zoom +
                                                       split_coordinates[1]))
+                self.draw_table[type(obj)](obj, painter)
+                self.displayed_objects.append(obj)
+
+        sorted_figures = sorted(self.model.figures,
+                                key=lambda fig: fig.distance_to_viewer(self.model))
+        #if len(sorted_figures) > 0:
+            #self.check_sorted_places(sorted_figures)
+        sorted_figures.reverse()
+
+        for obj in sorted_figures:
             self.draw_table[type(obj)](obj, painter)
             self.displayed_objects.append(obj)
+
+    #алгоритм Ньэлла для сортировки плоскостей, но он только ухудшил первую сортировку по z
+    def check_sorted_places(self, sorted_figures):
+        places = []
+        copy_places = []
+        for obj in sorted_figures:
+            if isinstance(obj, Place):
+                fl_wasnt_insert = True
+                for place in places:
+                    if not fl_wasnt_insert:
+                        copy_places.append(place)
+                        continue
+                    if Model.check_overlap(place.points, obj.points):
+                        copy_places.append(obj)
+                        copy_places.append(place)
+                        fl_wasnt_insert = False
+                        continue
+                    copy_places.append(place)
+                if fl_wasnt_insert:
+                    copy_places.append(obj)
+                places = copy_places
+                copy_places = []
+        for i in range(len(sorted_figures)):
+            if isinstance(sorted_figures[i], Place):
+                sorted_figures[i] = places.pop(0)
 
     def paint_point(self, point, painter):
         color = Color(point.color.value)

@@ -1,3 +1,5 @@
+import math
+
 from .algebra import Vector3
 from enum import Enum
 
@@ -28,6 +30,10 @@ class Point:
             self.x += other.x
             self.y += other.y
             self.z += other.z
+
+    def distance_to_viewer(self, model):
+        display_p = model.display_vector(self.to_vector3())
+        return int(display_p[2])
 
     def to_vector3(self):
         return Vector3(self.x, self.y, self.z)
@@ -87,6 +93,18 @@ class Line:
                 "color": self.color.value,
                 "width": self.WIDTH}
 
+    def distance_to_viewer(self, model):
+        points = [self.start, self.end]
+        z_min = None
+        for point in points:
+            display_p = model.display_vector(point.to_vector3())
+            if z_min is None:
+                z_min = display_p[2]
+            if z_min < display_p[2]:
+                z_min = display_p[2]
+
+        return z_min
+
 
 class Place:
     WIDTH = 5
@@ -117,6 +135,16 @@ class Place:
                 "color": self.color.value,
                 "width": self.WIDTH}
 
+    def distance_to_viewer(self, model):
+        z_min = None
+        for point in self.points:
+            display_p = model.display_vector(point.to_vector3())
+            if z_min is None:
+                z_min = display_p[2]
+            if z_min < display_p[2]:
+                z_min = display_p[2]
+
+        return z_min
 
 class Ellipse:
     WIDTH = 5
@@ -162,3 +190,18 @@ class Ellipse:
                 "ry": self.ry,
                 "color": self.color.value,
                 "width": self.WIDTH}
+
+    def distance_to_viewer(self, model):
+        points = [self.topLeft, self.bottomRight]
+        for el in self.extra_el:
+            points.append(el.topLeft)
+            points.append(el.bottomRight)
+        z_min = None
+        for point in self.points:
+            display_p = model.display_vector(point.to_vector3())
+            if z_min is None:
+                z_min = display_p[2]
+            if z_min < display_p[2]:
+                z_min = display_p[2]
+
+        return z_min
